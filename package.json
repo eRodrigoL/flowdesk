@@ -4,6 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:db": "node ./scripts/preparar-db-json.mjs",
+    "preserver": "npm run start:db",
+    "server": "json-server mock/db.json --port 3000",
+    "dev": "concurrently \"npm:start\" \"npm:server\"",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
