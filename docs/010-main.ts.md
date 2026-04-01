@@ -8,7 +8,7 @@ Uma forma simples de entender a organização é:
 
 - `main.ts` inicia a aplicação
 - `app.config.ts` [🔍](./009-app.config.ts.md) registra a configuração global
-- `app.routes.ts` concentra as rotas
+- `app.routes.ts` [🔍](./011.app.routes.ts.md) concentra as rotas
 - componentes cuidam da interface
 - serviços cuidam da lógica e do acesso a dados
 
