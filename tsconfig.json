@@ -18,8 +18,9 @@
     "paths": {
       "@components/*": ["app/shared/components/*"],
       "@dialogs/*": ["app/shared/dialogs/*"],
-      "@interfaces/*": ["app/features/interfaces/*"],
-      "@pages/*": ["app/features/pages/*"],
+      "@dashboard/*": ["app/features/dashboard/*"],
+      "@tickets/*": ["app/features/tickets/*"],
+      "@pages-t/*": ["app/features/tickets/pages/*"],
       "@pipes/*": ["app/features/pipes/*"],
       "@services/*": ["app/core/services/*"]
     }

@@ -5,7 +5,7 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () =>
-      import('@pages/painel/painel-inicial/painel-inicial').then((m) => m.PainelInicial),
+      import('@dashboard/pages/painel-inicial/painel-inicial').then((m) => m.PainelInicial),
     pathMatch: 'full',
   },
 
@@ -13,21 +13,21 @@ export const routes: Routes = [
   {
     path: 'chamados',
     loadComponent: () =>
-      import('@pages/chamados/listagem-chamados/listagem-chamados').then((m) => m.ListagemChamados),
+      import('@pages-t/listagem-chamados/listagem-chamados').then((m) => m.ListagemChamados),
   },
 
   // Criação de Chamados
   {
     path: 'chamados/novo',
     loadComponent: () =>
-      import('@pages/chamados/criacao-chamado/criacao-chamado').then((m) => m.CriacaoChamado),
+      import('@pages-t/criacao-chamado/criacao-chamado').then((m) => m.CriacaoChamado),
   },
 
   // Edição de Chamados
   {
     path: 'chamados/:id/editar',
     loadComponent: () =>
-      import('@pages/chamados/edicao-chamado/edicao-chamado').then((m) => m.EdicaoChamado),
+      import('@pages-t/edicao-chamado/edicao-chamado').then((m) => m.EdicaoChamado),
   },
 
   // Fallback
