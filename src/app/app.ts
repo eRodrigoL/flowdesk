@@ -1,11 +1,11 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 
-import { Cabecalho } from '@components/cabecalho/cabecalho';
+import { CabecalhoAplicacao } from '@components/cabecalho-aplicacao/cabecalho-aplicacao';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Cabecalho],
+  imports: [RouterOutlet, CabecalhoAplicacao],
   templateUrl: './app.html',
   styleUrl: './app.scss',
 })

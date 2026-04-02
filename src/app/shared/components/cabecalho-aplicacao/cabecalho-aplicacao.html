@@ -1,0 +1,22 @@
+<header>
+  <mat-toolbar>
+    <div>
+      <a routerLink="/">
+        <mat-icon>support_agent</mat-icon>
+        <span>Flowdesk</span>
+      </a>
+
+      <nav>
+        <a
+          mat-button
+          routerLink="/"
+          routerLinkActive="ativo"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Painel</a
+        >
+        <a mat-button routerLink="/chamados" routerLinkActive="ativo">Chamdados</a>
+        <a mat-flat-button routerLink="/chamados/novo">Novo chamado</a>
+      </nav>
+    </div>
+  </mat-toolbar>
+</header>

@@ -147,6 +147,10 @@ Alguns dos componentes mais frequentes são:
 - `MatCheckboxModule`
 - `MatSlideToggleModule`
 
+### 5.1 Ícones aceitos pelo `MatIconModule`
+
+O componente `mat-icon` aceita ícones por **ligature font**, isto é, pelo nome textual do ícone dentro da tag. Aceitando os ícones disponíveis em [fonts.google.com/icons](https://fonts.google.com/icons)
+
 ---
 
 ## 6. Quando pode não ser a melhor escolha
