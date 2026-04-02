@@ -1,1 +1,62 @@
-<p>listagem-chamados works!</p>
+<!-- Área de apresentação da página -->
+<section>
+  <div>
+    <h1>Chamdos</h1>
+    <p>Busque, filtre e gerencie as solicitações internas</p>
+  </div>
+</section>
+
+<!-- Área dedicado aos filtros de pesquisa -->
+<section>
+  <!-- Campo de pesquisa -->
+  <mat-form-field>
+    <mat-label>Busbar</mat-label>
+    <input matInput placeholder="Título, descrição ou tag" />
+  </mat-form-field>
+
+  <!-- Filtragem por status -->
+  <mat-form-field>
+    <mat-label>Status</mat-label>
+    <mat-select>
+      <mat-option>Todos</mat-option>
+      <mat-option>Aberto</mat-option>
+      <mat-option>Em andamento</mat-option>
+      <mat-option>Resolvido</mat-option>
+      <mat-option>Fechado</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Filtragem por prioridade -->
+  <mat-form-field>
+    <mat-label>Prioridade</mat-label>
+    <mat-select>
+      <mat-option>Todos</mat-option>
+      <mat-option>Baixa</mat-option>
+      <mat-option>Média</mat-option>
+      <mat-option>Alta</mat-option>
+      <mat-option>Crítica</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Filtragem por categoria -->
+  <!-- TODO: adicionar qunato implementada as tags-->
+
+  <button type="button" matButton>Limpar filtros</button>
+</section>
+
+<!-- Lista de chamados -->
+<section>
+  <app-estado-vazio
+    titulo="Nenhum chamado encontrado"
+    descricao="Ajuste a busca, revise os filtros ou crie um novo chamado."
+  />
+  <!-- TODO: criar componente de card do chamado -->
+</section>
+
+<!-- Paginação -->
+<mat-paginator
+  [length]="100"
+  [pageSize]="10"
+  [pageSizeOptions]="[5, 10, 25]"
+  showFirstLastButtons
+></mat-paginator>
