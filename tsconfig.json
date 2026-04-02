@@ -14,15 +14,14 @@
     "importHelpers": true,
     "target": "ES2022",
     "module": "preserve",
-    "baseUrl": "./src",
     "paths": {
-      "@components/*": ["app/shared/components/*"],
-      "@dialogs/*": ["app/shared/dialogs/*"],
-      "@dashboard/*": ["app/features/dashboard/*"],
-      "@tickets/*": ["app/features/tickets/*"],
-      "@pages-t/*": ["app/features/tickets/pages/*"],
-      "@pipes/*": ["app/features/pipes/*"],
-      "@services/*": ["app/core/services/*"]
+      "@components/*": ["./src/app/shared/components/*"],
+      "@dialogs/*": ["./src/app/shared/dialogs/*"],
+      "@dashboard/*": ["./src/app/features/dashboard/*"],
+      "@tickets/*": ["./src/app/features/tickets/*"],
+      "@pages-t/*": ["./src/app/features/tickets/pages/*"],
+      "@pipes/*": ["./src/app/features/pipes/*"],
+      "@services/*": ["./src/app/core/services/*"]
     }
   },
   "angularCompilerOptions": {
