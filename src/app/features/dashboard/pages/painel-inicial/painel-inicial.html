@@ -1,1 +1,58 @@
-<p>painel-inicial works!</p>
+<!-- Área de apresentação da página -->
+<section>
+  <div>
+    <h1>Painel inicial</h1>
+    <p>Visão resumida do fluxo de chamados.</p>
+  </div>
+</section>
+
+<!-- Grade de indicadores do dashboard -->
+<mat-grid-list cols="4" rowHeight="160px" gutterSize="16px">
+  <!-- Card com total de chamados -->
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Total</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <strong>total</strong>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <!-- Card com chamados em aberto -->
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Abertos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <strong>abertos</strong>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <!-- Card com chamados em andamento -->
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Em andamento</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <strong>em andamento</strong>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+
+  <!-- Card com chamados resolvidos -->
+  <mat-grid-tile>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Resolvidos</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <strong>resolvidos</strong>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
