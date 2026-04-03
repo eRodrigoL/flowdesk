@@ -151,6 +151,50 @@ Alguns dos componentes mais frequentes são:
 
 O componente `mat-icon` aceita ícones por **ligature font**, isto é, pelo nome textual do ícone dentro da tag. Aceitando os ícones disponíveis em [fonts.google.com/icons](https://fonts.google.com/icons)
 
+## 5.2 — Input de datas com `MatDatepickerModule`
+
+O `MatDatepickerModule` monta o componente visual de data.
+
+Estrutura mínima no template:
+
+```html
+<!-- ┌── input ➡️ campo onde a data será exibida ou digitada
+     |    ┌── matInput ➡️ aplica ao input o comportamento visual do Angular Material
+     |    |           ┌── [matDatepicker]="seletorData" ➡️ liga este campo ao calendário referenciado por seletorData -->
+<input matInput [matDatepicker]="seletorData" />
+
+<!--      ┌── mat-datepicker-toggle ➡️ botão com ícone que abre o calendário
+          |                 ┌── matIconSuffix ➡️ posiciona o ícone no final do campo
+          |                 |          ┌── [for]="seletorData" ➡️ conecta o botão ao calendário referenciado por seletorData -->
+<mat-datepicker-toggle matIconSuffix [for]="seletorData"></mat-datepicker-toggle>
+
+<!--   ┌── mat-datepicker ➡️ componente de calendário
+       |              ┌── #seletorData ➡️ cria uma referência local para este calendário -->
+<mat-datepicker #seletorData></mat-datepicker>
+```
+
+Mas isso sozinho não basta. Para o calendário funcionar corretamente, a aplicação precisa de um adaptador de datas.
+
+Umas das formas é usar o adaptador nativo do JavaScript. Para isso, adicione no `app.config.ts`:
+
+```ts
+import { provideNativeDateAdapter } from '@angular/material/core';
+```
+
+E registre `provideNativeDateAdapter()` nos `providers`.
+
+Exemplo:
+
+```ts
+import { provideNativeDateAdapter } from '@angular/material/core';
+
+export const appConfig: ApplicationConfig = {
+  providers: [provideNativeDateAdapter()],
+};
+```
+
+Sem essa configuração, o datepicker pode gerar erro informando que não encontrou um `DateAdapter`.
+
 ---
 
 ## 6. Quando pode não ser a melhor escolha
