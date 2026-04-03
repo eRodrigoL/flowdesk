@@ -10,7 +10,6 @@ Exemplo:
 
 ```ts
 import { LOCALE_ID } from '@angular/core';
-[...]
 ```
 
 E nos `providers`:
