@@ -1,1 +1,83 @@
-<p>criacao-chamado works!</p>
+<!-- Área de apresentação da página-->
+<section>
+  <div>
+    <h1>Novo chamado</h1>
+    <p>Preencha os dados para registrar uma nova solicitação</p>
+  </div>
+</section>
+
+<!-- Formulário de registro de novo chamado -->
+<form>
+  <!-- Título -->
+  <section>
+    <mat-form-field>
+      <mat-label>Título</mat-label>
+      <input matInput placeholder="Digite o título..." />
+    </mat-form-field>
+  </section>
+
+  <!-- Categoria -->
+  <mat-form-field>
+    <mat-label>Categoria</mat-label>
+    <mat-select>
+      <mat-option>categorias</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Prioridade -->
+  <mat-form-field>
+    <mat-label>Prioridade</mat-label>
+    <mat-select>
+      <mat-option>Baixa</mat-option>
+      <mat-option>Média</mat-option>
+      <mat-option>Alta</mat-option>
+      <mat-option>Crítica</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Descrição -->
+  <mat-form-field>
+    <mat-label>Descrição</mat-label>
+    <textarea matInput rows="6" placeholder="Digite o título..."></textarea>
+  </mat-form-field>
+
+  <!-- Solicitante -->
+  <mat-form-field>
+    <mat-label>Solicitante</mat-label>
+    <mat-select>
+      <mat-option>nome do usuário solicitante</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Responsável -->
+  <mat-form-field>
+    <mat-label>Responsável</mat-label>
+    <mat-select>
+      <mat-option> nome do usuario responsável </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!-- Prazo -->
+  <mat-form-field>
+    <mat-label>Prazo</mat-label>
+    <input matInput [matDatepicker]="seletorPrazo" />
+    <mat-datepicker-toggle matIconSuffix [for]="seletorPrazo"></mat-datepicker-toggle>
+    <mat-datepicker #seletorPrazo></mat-datepicker>
+  </mat-form-field>
+
+  <!-- Custo estimado -->
+  <mat-form-field>
+    <mat-label>Custo estimado</mat-label>
+    <input matInput type="number" />
+  </mat-form-field>
+
+  <!-- Tags -->
+  <mat-form-field>
+    <mat-label>Tags</mat-label>
+    <input matInput placeholder="vpn, acesso, infraestrutura" />
+  </mat-form-field>
+
+  <!-- Ações -->
+  <a matButton routerLink="/chamados">Cancelar</a>
+  <button type="submit" mat-flat-button>Salvar chamado</button>
+</form>
