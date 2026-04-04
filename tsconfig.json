@@ -21,6 +21,7 @@
       "@tickets/*": ["./src/app/features/tickets/*"],
       "@pages-t/*": ["./src/app/features/tickets/pages/*"],
       "@pipes/*": ["./src/app/features/pipes/*"],
+      "@models/*": ["./src/app/core/models/*"],
       "@services/*": ["./src/app/core/services/*"]
     }
   },

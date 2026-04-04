@@ -19,9 +19,9 @@ export interface Chamado {
 
 export interface FiltrosChamados {
   busca: string;
-  status: StatusChamado | 'all';
-  prioridade: PrioridadeChamado | 'all';
-  categoriaId: number | 'all';
+  status: StatusChamado | 'todos';
+  prioridade: PrioridadeChamado | 'todos';
+  categoriaId: number | 'todos';
 }
 
 export type PayloadChamado = Omit<Chamado, 'id'>;
