@@ -52,7 +52,6 @@ No `tsconfig.json`:
 ```json
 {
   "compilerOptions": {
-    [...],
     "baseUrl": "./src",
     //  └── "baseUrl" ➡️ define a pasta base usada para resolver os caminhos do projeto
     //  ┌── "paths" ➡️ cria mapeamentos de apelidos para caminhos reais
