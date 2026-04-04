@@ -39,7 +39,7 @@
   </mat-form-field>
 
   <!-- Filtragem por categoria -->
-  <!-- TODO: adicionar qunato implementada as tags-->
+  <!-- TODO: adicionar após implementação as tags-->
 
   <button type="button" matButton>Limpar filtros</button>
 </section>
@@ -50,7 +50,10 @@
     titulo="Nenhum chamado encontrado"
     descricao="Ajuste a busca, revise os filtros ou crie um novo chamado."
   />
-  <!-- TODO: criar componente de card do chamado -->
+
+  @for (chamado of chamados(); track chamado.id) {
+    <app-card-chamado [chamado]="chamado" [categorias]="categorias()" />
+  }
 </section>
 
 <!-- Paginação -->

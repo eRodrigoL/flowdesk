@@ -1,0 +1,28 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title> {{ chamado().titulo }}</mat-card-title>
+    <mat-card-subtitle> {{ chamado().status }} • {{ chamado().dataAbertura }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <p>{{ chamado().descricao }}</p>
+
+    <div>
+      <span><strong>Categoria:</strong> {{ nomeCategoria() }}</span>
+      <span><strong>Prioridade:</strong> {{ chamado().prioridade }}</span>
+      <span><strong>Abertura:</strong> {{ chamado().dataAbertura }}</span>
+
+      @if (chamado().custoEstimado) {
+        <span><strong>Custo estimado:</strong> {{ chamado().custoEstimado }}</span>
+      }
+
+      @if (chamado().tags.length) {
+        <mat-chip-set>
+          @for (tag of chamado().tags; track tag) {
+            <mat-chip> {{ tag }}</mat-chip>
+          }
+        </mat-chip-set>
+      }
+    </div>
+  </mat-card-content>
+</mat-card>
