@@ -69,10 +69,13 @@
   </mat-form-field>
 
   <!-- Tags -->
-  <mat-form-field>
-    <mat-label>Tags</mat-label>
-    <input matInput formControlName="tags" placeholder="vpn, acesso, infraestrutura" />
-  </mat-form-field>
+  <div>
+    <mat-form-field>
+      <mat-label>Tags</mat-label>
+      <input matInput formControlName="tags" placeholder="vpn, acesso, infraestrutura" />
+    </mat-form-field>
+    <span>Para multiplas tags separe-as com virgula</span>
+  </div>
 
   <!-- Ações -->
   <a matButton routerLink="/chamados">Cancelar</a>

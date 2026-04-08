@@ -12,12 +12,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { Categoria } from '@models/categoria';
 import { PayloadChamado, PrioridadeChamado, StatusChamado } from '@models/chamado';
-import { Usuario } from '@models/usuario';
 
 import { CategoriasService } from '@services/categorias.service';
 import { ChamadosService } from '@services/chamados.service';
-import { UsuariosService } from '@services/usuarios.service';
-
 @Component({
   selector: 'app-criacao-chamado',
   imports: [
@@ -36,12 +33,10 @@ import { UsuariosService } from '@services/usuarios.service';
 export class CriacaoChamado {
   private readonly chamadosService = inject(ChamadosService);
   private readonly categoriasService = inject(CategoriasService);
-  private readonly usuariosService = inject(UsuariosService);
   private readonly snackBar = inject(MatSnackBar);
   private readonly router = inject(Router);
 
   readonly categorias = signal<Categoria[]>([]);
-  readonly usuarios = signal<Usuario[]>([]);
 
   readonly formulario = new FormGroup({
     titulo: new FormControl('', {
@@ -89,10 +84,6 @@ export class CriacaoChamado {
     this.categoriasService.listar().subscribe({
       next: (categorias) => this.categorias.set(categorias),
     });
-
-    this.usuariosService.listar().subscribe({
-      next: (usuarios) => this.usuarios.set(usuarios),
-    });
   }
 
   salvar(): void {
@@ -110,7 +101,6 @@ export class CriacaoChamado {
       prioridade: valores.prioridade,
       status: valores.status,
       solicitante: obterValorOuLancar(valores.solicitante),
-      responsavelId: valores.responsavelId,
       dataAbertura: new Date().toISOString(),
       prazo: valores.prazo ? valores.prazo.toISOString() : null,
       tags: valores.tags
