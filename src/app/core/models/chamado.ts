@@ -6,11 +6,10 @@ export interface Chamado {
   id: string;
   titulo: string;
   descricao: string;
-  categoriaId: number;
+  categoriaId: string;
   prioridade: PrioridadeChamado;
   status: StatusChamado;
-  solicitanteId: number;
-  responsavelId: number | null;
+  solicitante: string;
   dataAbertura: string;
   prazo: string | null;
   tags: string[];
@@ -21,7 +20,7 @@ export interface FiltrosChamados {
   busca: string;
   status: StatusChamado | 'todos';
   prioridade: PrioridadeChamado | 'todos';
-  categoriaId: number | 'todos';
+  categoriaId: string | 'todos';
 }
 
 export type PayloadChamado = Omit<Chamado, 'id'>;
