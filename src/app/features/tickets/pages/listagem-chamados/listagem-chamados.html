@@ -1,7 +1,7 @@
 <!-- Área de apresentação da página -->
 <section>
   <div>
-    <h1>Chamdos</h1>
+    <h1>Chamados</h1>
     <p>Busque, filtre e gerencie as solicitações internas</p>
   </div>
 </section>
@@ -10,7 +10,7 @@
 <section>
   <!-- Campo de pesquisa -->
   <mat-form-field>
-    <mat-label>Busbar</mat-label>
+    <mat-label>Buscar</mat-label>
     <input matInput placeholder="Título, descrição ou tag" />
   </mat-form-field>
 
@@ -45,21 +45,28 @@
 </section>
 
 <!-- Lista de chamados -->
-<section>
+@if (!totalItens()) {
   <app-estado-vazio
     titulo="Nenhum chamado encontrado"
     descricao="Ajuste a busca, revise os filtros ou crie um novo chamado."
   />
+} @else {
+  <section>
+    @for (chamado of chamados(); track chamado.id) {
+      <app-card-chamado
+        [chamado]="chamado"
+        [categorias]="categorias()"
+        (visualizar)="abrirDetalhes(chamado)"
+        (editar)="editarChamado(chamado)"
+      />
+    }
+  </section>
 
-  @for (chamado of chamados(); track chamado.id) {
-    <app-card-chamado [chamado]="chamado" [categorias]="categorias()" />
-  }
-</section>
-
-<!-- Paginação -->
-<mat-paginator
-  [length]="100"
-  [pageSize]="10"
-  [pageSizeOptions]="[5, 10, 25]"
-  showFirstLastButtons
-></mat-paginator>
+  <!-- Paginação -->
+  <mat-paginator
+    [length]="100"
+    [pageSize]="10"
+    [pageSizeOptions]="[5, 10, 25]"
+    showFirstLastButtons
+  />
+}

@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
-    <mat-card-title> {{ chamado().titulo }}</mat-card-title>
-    <mat-card-subtitle> {{ chamado().status }} • {{ chamado().dataAbertura }}</mat-card-subtitle>
+    <mat-card-title>{{ chamado().titulo }}</mat-card-title>
+    <mat-card-subtitle>{{ chamado().status }} • {{ chamado().dataAbertura }}</mat-card-subtitle>
   </mat-card-header>
 
   <mat-card-content>
@@ -13,16 +13,31 @@
       <span><strong>Abertura:</strong> {{ chamado().dataAbertura }}</span>
 
       @if (chamado().custoEstimado) {
-        <span><strong>Custo estimado:</strong> {{ chamado().custoEstimado }}</span>
-      }
-
-      @if (chamado().tags.length) {
-        <mat-chip-set>
-          @for (tag of chamado().tags; track tag) {
-            <mat-chip> {{ tag }}</mat-chip>
-          }
-        </mat-chip-set>
+        <span>
+          <strong>Custo estimado:</strong>
+          {{ chamado().custoEstimado }}
+        </span>
       }
     </div>
+
+    @if (chamado().tags.length) {
+      <mat-chip-set>
+        @for (tag of chamado().tags; track tag) {
+          <mat-chip> {{ tag }}</mat-chip>
+        }
+      </mat-chip-set>
+    }
   </mat-card-content>
+
+  <mat-card-actions>
+    <button type="button" matButton (click)="visualizar.emit()">
+      <mat-icon>visibility</mat-icon>
+      Detalhes
+    </button>
+
+    <button type="button" matButton (click)="editar.emit()">
+      <mat-icon>edit</mat-icon>
+      Editar
+    </button>
+  </mat-card-actions>
 </mat-card>

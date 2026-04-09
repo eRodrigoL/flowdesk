@@ -1,0 +1,41 @@
+<h2 mat-dialog-title>{{ dados.chamado.titulo }}</h2>
+
+<mat-dialog-content>
+  <div>
+    <p><strong>Status:</strong> {{ dados.chamado.status }}</p>
+    <p><strong>Prioridade:</strong> {{ dados.chamado.prioridade }}</p>
+    <p><strong>Categoria:</strong> {{ nomeCategoria }}</p>
+    <p><strong>Abertura:</strong> {{ dados.chamado.dataAbertura }}</p>
+    <p><strong>Tempo em aberto:</strong> {{ dados.chamado.dataAbertura }}</p>
+
+    @if (dados.chamado.prazo) {
+      <p><strong>Prazo:</strong> {{ dados.chamado.prazo }}</p>
+    }
+    @if (dados.chamado.custoEstimado) {
+      <p>
+        <strong>Custo estimado:</strong>
+        {{ dados.chamado.custoEstimado }}
+      </p>
+    }
+  </div>
+
+  <section>
+    <h3>Descrição</h3>
+    <p>{{ dados.chamado.descricao }}</p>
+  </section>
+
+  @if (dados.chamado.tags.length) {
+    <section>
+      <h3>Tags</h3>
+      <mat-chip-set>
+        @for (tag of dados.chamado.tags; track tag) {
+          <mat-chip>{{ tag }}</mat-chip>
+        }
+      </mat-chip-set>
+    </section>
+  }
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button type="button" matButton (click)="fechar()">Fechar</button>
+</mat-dialog-actions>
