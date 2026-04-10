@@ -61,12 +61,18 @@ export class ListagemChamados {
   }
 
   abrirDetalhes(chamado: Chamado): void {
-    this.dialog.open(DetalhesChamado, {
+    const dialogRef = this.dialog.open(DetalhesChamado, {
       width: '700px',
       data: {
         chamado,
         categorias: this.categorias(),
       },
+    });
+
+    dialogRef.afterClosed().subscribe((resultado) => {
+      if (resultado?.acao === 'editar') {
+        this.editarChamado(resultado.chamado);
+      }
     });
   }
 

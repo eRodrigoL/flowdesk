@@ -20,7 +20,6 @@ export class CardChamado {
   readonly categorias = input.required<Categoria[]>();
 
   readonly visualizar = output<void>();
-  readonly editar = output<void>();
 
   readonly nomeCategoria = computed(() => {
     const categoria = this.categorias().find((item) => item.id === this.chamado().categoriaId);

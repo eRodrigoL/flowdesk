@@ -36,6 +36,10 @@
   }
 </mat-dialog-content>
 
-<mat-dialog-actions align="end">
+<mat-dialog-actions>
+  <button type="button" matButton (click)="editar()">
+    <mat-icon>edit</mat-icon>
+    Editar
+  </button>
   <button type="button" matButton (click)="fechar()">Fechar</button>
 </mat-dialog-actions>
