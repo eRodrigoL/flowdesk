@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { Categoria } from '@models/categoria';
 import { Chamado } from '@models/chamado';
@@ -35,6 +36,7 @@ export class ListagemChamados {
   private readonly categoriasService = inject(CategoriasService);
   private readonly dialog = inject(MatDialog);
   private readonly router = inject(Router);
+  private readonly snackBar = inject(MatSnackBar);
 
   readonly chamados = signal<Chamado[]>([]);
   readonly categorias = signal<Categoria[]>([]);
@@ -73,10 +75,24 @@ export class ListagemChamados {
       if (resultado?.acao === 'editar') {
         this.editarChamado(resultado.chamado);
       }
+
+      if (resultado?.acao === 'excluir') {
+        this.solicitarExclusao(resultado.chamado);
+      }
     });
   }
 
   editarChamado(chamado: Chamado): void {
     this.router.navigate(['/chamados', chamado.id, 'editar']);
+  }
+
+  solicitarExclusao(chamado: Chamado): void {
+    this.chamadosService.excluir(chamado.id).subscribe({
+      next: () => {
+        this.chamados.update((lista) => lista.filter((c) => c.id !== chamado.id));
+
+        this.snackBar.open('Chamado excluído com sucesso.', 'Fechar');
+      },
+    });
   }
 }

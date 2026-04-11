@@ -28,6 +28,10 @@ export class DetalhesChamado {
     this.dialogRef.close({ acao: 'editar', chamado: this.dados.chamado });
   }
 
+  excluir(): void {
+    this.dialogRef.close({ acao: 'excluir', chamado: this.dados.chamado });
+  }
+
   readonly nomeCategoria =
     this.dados.categorias.find((item) => item.id === this.dados.chamado.categoriaId)?.nome ??
     'Sem categoria';
