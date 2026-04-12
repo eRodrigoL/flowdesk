@@ -1,26 +1,32 @@
 <header>
   <mat-toolbar>
-    <div>
-      <!-- Marca com rota para página inicial-->
-      <a routerLink="/">
-        <mat-icon>support_agent</mat-icon>
-        <span>Flowdesk</span>
-      </a>
+    <div class="conteudo-toolbar">
+      <div class="esquerda">
+        <!-- Marca com rota para página inicial-->
+        <a class="marca" routerLink="/">
+          <mat-icon>support_agent</mat-icon>
+          <span>FlowDesk</span>
+        </a>
+      </div>
 
-      <nav>
+      <nav class="centro">
         <!-- Menu de navegação -->
         <a
-          mat-button
+          matButton
           routerLink="/"
           routerLinkActive="ativo"
           [routerLinkActiveOptions]="{ exact: true }"
-          >Painel</a
         >
-        <a mat-button routerLink="/chamados" routerLinkActive="ativo">Chamados</a>
+          Painel
+        </a>
 
-        <!-- Botão de criação de chamados -->
-        <a mat-flat-button routerLink="/chamados/novo">Novo chamado</a>
+        <a matButton routerLink="/chamados" routerLinkActive="ativo"> Chamados </a>
       </nav>
+
+      <div class="direita">
+        <!-- Botão de criação de chamados -->
+        <a mat-flat-button routerLink="/chamados/novo"> Novo chamado </a>
+      </div>
     </div>
   </mat-toolbar>
 </header>
