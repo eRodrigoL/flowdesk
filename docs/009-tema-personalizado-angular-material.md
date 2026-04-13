@@ -253,3 +253,109 @@ Esse generator usa **Material Design 3 (M3)**:
   - (opcional) secondary
 
 ---
+
+<><><><><><><>
+
+## 6. Uso das cores no SCSS (CSS variables do Material 3)
+
+Quando o tema é aplicado com `@include mat.theme(...)`, o Angular Material gera automaticamente **CSS variables globais**.
+
+Essas variáveis podem ser usadas em qualquer SCSS da aplicação (inclusive nos componentes).
+
+---
+
+### 6.1 Como usar
+
+```scss
+minha-classe {
+  background-color: var(--mat-sys-surface);
+  color: var(--mat-sys-on-surface);
+}
+```
+
+- `var(--mat-...)` → acessa variáveis do tema
+- não é necessário importar nada no SCSS do componente
+
+---
+
+### 6.2 Tabela das variáveis do Angular Material (M3) mais usadas
+
+| Variável                              | Onde usar                                               |
+| ------------------------------------- | ------------------------------------------------------- |
+| `var(--mat-sys-primary)`              | 🎨 cor principal (botões, destaques)                    |
+| `var(--mat-sys-on-primary)`           | 🎨 texto sobre elementos com cor primary                |
+| `var(--mat-sys-primary-container)`    | 🎯 fundo de destaque (cards selecionados, chips ativos) |
+| `var(--mat-sys-on-primary-container)` | 🎯 texto sobre fundo de destaque                        |
+
+| `var(--mat-sys-secondary)` | 🎨 cor secundária (ações menos prioritárias) |
+| `var(--mat-sys-on-secondary)` | 🎨 texto sobre secondary |
+| `var(--mat-sys-secondary-container)` | 🎯 fundo secundário suave |
+| `var(--mat-sys-on-secondary-container)` | 🎯 texto sobre fundo secundário |
+
+| `var(--mat-sys-tertiary)` | 🎨 cor complementar (diferenciação visual) |
+| `var(--mat-sys-on-tertiary)` | 🎨 texto sobre tertiary |
+| `var(--mat-sys-tertiary-container)` | 🎯 fundo terciário |
+| `var(--mat-sys-on-tertiary-container)` | 🎯 texto sobre fundo terciário |
+
+| `var(--mat-sys-error)` | ❌ erro (validação, alertas) |
+| `var(--mat-sys-on-error)` | ❌ texto sobre erro |
+| `var(--mat-sys-error-container)` | ❌ fundo de erro |
+| `var(--mat-sys-on-error-container)` | ❌ texto sobre fundo de erro |
+
+| `var(--mat-sys-surface)` | 🧱 fundo principal da aplicação |
+| `var(--mat-sys-on-surface)` | 🧱 texto padrão |
+| `var(--mat-sys-surface-container)` | 🧱 fundo de cards e blocos |
+| `var(--mat-sys-surface-container-high)` | 🧱 superfícies elevadas |
+| `var(--mat-sys-surface-container-low)` | 🧱 superfícies leves |
+
+| `var(--mat-sys-on-surface-variant)` | 🧱 texto secundário |
+| `var(--mat-sys-outline)` | 🧱 bordas e divisores |
+| `var(--mat-sys-outline-variant)` | 🧱 bordas mais suaves |
+
+| `var(--mat-sys-inverse-surface)` | 🔄 fundo invertido (dark em light) |
+| `var(--mat-sys-inverse-on-surface)` | 🔄 texto sobre fundo invertido |
+| `var(--mat-sys-inverse-primary)` | 🔄 destaque em contexto invertido |
+
+---
+
+### 6.3 Exemplo prático
+
+```scss
+.card-custom {
+  background-color: var(--mat-sys-surface-container);
+  color: var(--mat-sys-on-surface);
+
+  border: 1px solid var(--mat-sys-outline);
+  border-radius: 16px;
+
+  padding: 16px;
+}
+```
+
+---
+
+### 6.4 Dependência real
+
+Essas variáveis só existem se:
+
+- o tema foi aplicado no `styles.scss`
+- `@include mat.theme(...)` foi executado
+
+Sem isso:
+
+- `var(--mat-...)` não funciona
+
+---
+
+### 6.6 Observação importante
+
+- essas variáveis são globais
+
+- funcionam em:
+  - SCSS de componentes
+  - styles globais
+  - HTML inline
+
+- não é necessário usar `@use` no componente
+
+---
