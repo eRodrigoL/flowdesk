@@ -1,0 +1,38 @@
+.cabecalho-pagina {
+  margin-bottom: 24px;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+.dashboard-grid {
+  display: grid;
+  gap: 16px;
+
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+}
+
+.card {
+  height: 160px;
+  border-radius: 20px;
+  border: 1px solid var(--mat-sys-outline);
+  box-shadow: none;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 16px;
+}
+
+mat-card-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+}
+
+strong {
+  font-size: 32px;
+}

@@ -2,8 +2,8 @@ mat-toolbar {
   position: sticky;
   top: 0;
   z-index: 10;
-  background: #ffffffdd;
-  border-bottom: 1px solid #e3e5ec;
+  background: #ffffffff;
+  border-bottom: 1px solid var(--mat-sys-outline);
 }
 
 .conteudo-toolbar {
