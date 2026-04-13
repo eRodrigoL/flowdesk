@@ -1,0 +1,33 @@
+:host {
+  display: grid;
+  gap: 24px;
+}
+
+.cabecalho-pagina {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.filtros {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.lista-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+h1,
+p {
+  margin: 0;
+}
+
+mat-form-field {
+  width: 100%;
+}

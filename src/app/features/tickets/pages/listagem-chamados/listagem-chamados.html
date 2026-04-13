@@ -1,5 +1,5 @@
 <!-- Área de apresentação da página -->
-<section>
+<section class="cabecalho-pagina">
   <div>
     <h1>Chamados</h1>
     <p>Busque, filtre e gerencie as solicitações internas</p>
@@ -7,15 +7,15 @@
 </section>
 
 <!-- Área dedicado aos filtros de pesquisa -->
-<section>
+<section class="filtros">
   <!-- Campo de pesquisa -->
-  <mat-form-field>
+  <mat-form-field appearance="outline">
     <mat-label>Buscar</mat-label>
     <input matInput placeholder="Título, descrição ou tag" />
   </mat-form-field>
 
   <!-- Filtragem por status -->
-  <mat-form-field>
+  <mat-form-field appearance="outline">
     <mat-label>Status</mat-label>
     <mat-select>
       <mat-option>Todos</mat-option>
@@ -27,7 +27,7 @@
   </mat-form-field>
 
   <!-- Filtragem por prioridade -->
-  <mat-form-field>
+  <mat-form-field appearance="outline">
     <mat-label>Prioridade</mat-label>
     <mat-select>
       <mat-option>Todos</mat-option>
@@ -51,7 +51,7 @@
     descricao="Ajuste a busca, revise os filtros ou crie um novo chamado."
   />
 } @else {
-  <section>
+  <section class="lista-cards">
     @for (chamado of chamados(); track chamado.id) {
       <app-card-chamado
         [chamado]="chamado"
