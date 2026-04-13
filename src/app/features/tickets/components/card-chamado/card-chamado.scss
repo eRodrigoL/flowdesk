@@ -1,0 +1,38 @@
+mat-card {
+  height: 100%;
+  border-radius: 20px;
+  border: 1px solid var(--mat-sys-surface-container);
+  box-shadow: none;
+}
+
+mat-card-content {
+  display: grip;
+  gap: 16px;
+}
+
+p {
+  margin: 8px 0 16px;
+  color: var(--mat-sys-on-surface);
+  line-height: 1.4;
+}
+
+.meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+mat-card-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+mat-card-title {
+  font-weight: 550;
+}
+
+.meta strong {
+  font-weight: 550;
+  color: var(--mat-sys-on-surface-variant);
+}
