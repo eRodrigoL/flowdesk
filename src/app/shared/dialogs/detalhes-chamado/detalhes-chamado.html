@@ -1,31 +1,49 @@
 <h2 mat-dialog-title>{{ dados.chamado.titulo }}</h2>
 
 <mat-dialog-content>
-  <div>
-    <p><strong>Status:</strong> {{ dados.chamado.status }}</p>
-    <p><strong>Prioridade:</strong> {{ dados.chamado.prioridade }}</p>
-    <p><strong>Categoria:</strong> {{ nomeCategoria }}</p>
-    <p><strong>Abertura:</strong> {{ dados.chamado.dataAbertura }}</p>
-    <p><strong>Tempo em aberto:</strong> {{ dados.chamado.dataAbertura }}</p>
+  <div class="bloco-informacoes">
+    <div class="linha-grid">
+      <div>
+        <strong>Status:</strong>
+        <span class="destaque">{{ dados.chamado.status }}</span>
+      </div>
 
-    @if (dados.chamado.prazo) {
-      <p><strong>Prazo:</strong> {{ dados.chamado.prazo }}</p>
-    }
-    @if (dados.chamado.custoEstimado) {
-      <p>
-        <strong>Custo estimado:</strong>
-        {{ dados.chamado.custoEstimado }}
-      </p>
+      <div>
+        <strong>Prioridade:</strong>
+        <span class="destaque">{{ dados.chamado.prioridade }}</span>
+      </div>
+    </div>
+
+    <div class="linha-grid">
+      <div><strong>Solicitante:</strong> {{ dados.chamado.solicitante }}</div>
+      <div><strong>Categoria:</strong> {{ nomeCategoria }}</div>
+    </div>
+
+    <div class="linha-grid">
+      <div><strong>Abertura:</strong> {{ dados.chamado.dataAbertura }}</div>
+      <div><strong>Tempo:</strong> {{ dados.chamado.dataAbertura }}</div>
+    </div>
+
+    @if (dados.chamado.prazo || dados.chamado.custoEstimado) {
+      <div class="linha-grid prazo-custo">
+        @if (dados.chamado.prazo) {
+          <div><strong>Prazo:</strong> {{ dados.chamado.prazo }}</div>
+        }
+
+        @if (dados.chamado.custoEstimado) {
+          <div><strong>Custo:</strong> {{ dados.chamado.custoEstimado }}</div>
+        }
+      </div>
     }
   </div>
 
-  <section>
+  <section class="secao">
     <h3>Descrição</h3>
     <p>{{ dados.chamado.descricao }}</p>
   </section>
 
   @if (dados.chamado.tags.length) {
-    <section>
+    <section class="secao">
       <h3>Tags</h3>
       <mat-chip-set>
         @for (tag of dados.chamado.tags; track tag) {
@@ -36,14 +54,8 @@
   }
 </mat-dialog-content>
 
-<mat-dialog-actions>
-  <button type="button" matButton (click)="editar()">
-    <mat-icon>edit</mat-icon>
-    Editar
-  </button>
-  <button type="button" matButton (click)="excluir()">
-    <mat-icon>delete</mat-icon>
-    Excluir
-  </button>
+<mat-dialog-actions align="end">
+  <button type="button" matButton (click)="editar()">Editar</button>
+  <button type="button" matButton (click)="excluir()">Excluir</button>
   <button type="button" matButton (click)="fechar()">Fechar</button>
 </mat-dialog-actions>
