@@ -1,0 +1,58 @@
+:host {
+  display: grid;
+  gap: 24px;
+}
+
+/* Cabeçalho */
+.cabecalho h1,
+.cabecalho p {
+  margin: 0;
+}
+
+/* Formulário */
+form {
+  display: grid;
+  gap: 24px;
+}
+
+/* GRID PRINCIPAL */
+.grade-formulario {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* CAMPOS FULL WIDTH */
+.campo-largo {
+  grid-column: 1 / -1;
+}
+
+/* RESPONSIVO */
+@media (max-width: 600px) {
+  .grade-formulario {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* FORM FIELD */
+mat-form-field {
+  width: 100%;
+}
+
+/* TEXTAREA */
+textarea {
+  resize: vertical;
+}
+
+/* AÇÕES */
+.acoes-formulario {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+
+  max-width: 800px;
+  margin: 0 auto;
+}
