@@ -1,83 +1,91 @@
-<!-- Área de apresentação da página-->
-<section>
+<!-- Área de apresentação -->
+<section class="cabecalho">
   <div>
     <h1>Novo chamado</h1>
     <p>Preencha os dados para registrar uma nova solicitação</p>
   </div>
 </section>
 
-<!-- Formulário de registro de novo chamado -->
+<!-- Formulário -->
 <form [formGroup]="formulario" (ngSubmit)="salvar()">
-  <!-- Título -->
-  <section>
-    <mat-form-field>
+  <section class="grade-formulario">
+    <!-- Título -->
+    <mat-form-field appearance="outline" class="campo-largo">
       <mat-label>Título</mat-label>
-      <input matInput formControlName="titulo" placeholder="Digite o título..." />
+      <input matInput formControlName="titulo" />
     </mat-form-field>
+
+    <!-- Status (opcional: só se existir na criação) -->
+    <mat-form-field appearance="outline">
+      <mat-label>Status</mat-label>
+      <mat-select formControlName="status">
+        <mat-option value="aberto">Aberto</mat-option>
+        <mat-option value="Em_progresso">Em andamento</mat-option>
+        <mat-option value="resolvido">Resolvido</mat-option>
+        <mat-option value="fechado">Fechado</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Prioridade -->
+    <mat-form-field appearance="outline">
+      <mat-label>Prioridade</mat-label>
+      <mat-select formControlName="prioridade">
+        <mat-option value="baixa">Baixa</mat-option>
+        <mat-option value="media">Média</mat-option>
+        <mat-option value="alta">Alta</mat-option>
+        <mat-option value="critica">Crítica</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Solicitante -->
+    <mat-form-field appearance="outline">
+      <mat-label>Solicitante</mat-label>
+      <input matInput formControlName="solicitante" />
+    </mat-form-field>
+
+    <!-- Categoria -->
+    <mat-form-field appearance="outline">
+      <mat-label>Categoria</mat-label>
+      <mat-select formControlName="categoriaId">
+        @for (categoria of categorias(); track categoria.id) {
+          <mat-option [value]="categoria.id">{{ categoria.nome }}</mat-option>
+        }
+      </mat-select>
+    </mat-form-field>
+
+    <!-- Prazo -->
+    <mat-form-field appearance="outline">
+      <mat-label>Prazo</mat-label>
+      <input matInput [matDatepicker]="seletorPrazo" formControlName="prazo" />
+      <mat-datepicker-toggle matIconSuffix [for]="seletorPrazo"></mat-datepicker-toggle>
+      <mat-datepicker #seletorPrazo></mat-datepicker>
+    </mat-form-field>
+
+    <!-- Custo -->
+    <mat-form-field appearance="outline">
+      <mat-label>Custo estimado</mat-label>
+      <input matInput type="number" formControlName="custoEstimado" />
+    </mat-form-field>
+
+    <!-- Descrição -->
+    <mat-form-field appearance="outline" class="campo-largo">
+      <mat-label>Descrição</mat-label>
+      <textarea matInput rows="6" formControlName="descricao"></textarea>
+    </mat-form-field>
+
+    <!-- Tags -->
+    <div class="campo-largo bloco-tags">
+      <mat-form-field appearance="outline">
+        <mat-label>Tags</mat-label>
+        <input matInput formControlName="tags" />
+      </mat-form-field>
+      <span class="hint">Separe múltiplas tags com vírgula</span>
+    </div>
   </section>
 
-  <!-- Solicitante -->
-  <mat-form-field>
-    <mat-label>Solicitante</mat-label>
-    <input matInput formControlName="solicitante" placeholder="Digite seu nome completo..." />
-  </mat-form-field>
-
-  <!-- Categoria -->
-  <mat-form-field>
-    <mat-label>Categoria</mat-label>
-    <mat-select formControlName="categoriaId">
-      @for (categoria of categorias(); track categoria.id) {
-        <mat-option [value]="categoria.id">{{ categoria.nome }}</mat-option>
-      }
-    </mat-select>
-  </mat-form-field>
-
-  <!-- Prioridade -->
-  <mat-form-field>
-    <mat-label>Prioridade</mat-label>
-    <mat-select formControlName="prioridade">
-      <mat-option value="baixa">Baixa</mat-option>
-      <mat-option value="media">Média</mat-option>
-      <mat-option value="alta">Alta</mat-option>
-      <mat-option value="critica">Crítica</mat-option>
-    </mat-select>
-  </mat-form-field>
-
-  <!-- Descrição -->
-  <mat-form-field>
-    <mat-label>Descrição</mat-label>
-    <textarea
-      matInput
-      rows="6"
-      formControlName="descricao"
-      placeholder="Digite a descrição..."
-    ></textarea>
-  </mat-form-field>
-
-  <!-- Prazo -->
-  <mat-form-field>
-    <mat-label>Prazo</mat-label>
-    <input matInput [matDatepicker]="seletorPrazo" formControlName="prazo" />
-    <mat-datepicker-toggle matIconSuffix [for]="seletorPrazo"></mat-datepicker-toggle>
-    <mat-datepicker #seletorPrazo></mat-datepicker>
-  </mat-form-field>
-
-  <!-- Custo estimado -->
-  <mat-form-field>
-    <mat-label>Custo estimado</mat-label>
-    <input matInput type="number" formControlName="custoEstimado" />
-  </mat-form-field>
-
-  <!-- Tags -->
-  <div>
-    <mat-form-field>
-      <mat-label>Tags</mat-label>
-      <input matInput formControlName="tags" placeholder="vpn, acesso, infraestrutura" />
-    </mat-form-field>
-    <span>Para multiplas tags separe-as com virgula</span>
-  </div>
-
   <!-- Ações -->
-  <a matButton routerLink="/chamados">Cancelar</a>
-  <button type="submit" mat-flat-button>Salvar chamado</button>
+  <section class="acoes-formulario">
+    <a matButton routerLink="/chamados">Cancelar</a>
+    <button type="submit" mat-flat-button>Salvar chamado</button>
+  </section>
 </form>
